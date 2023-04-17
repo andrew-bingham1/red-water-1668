@@ -27,12 +27,16 @@ describe 'Chef Show Page' do
 
       expect(current_path).to eq(chef_ingredients_path(@chef_1))
     end
+
+    it 'and I can see a unique list of names of all the ingredients that this chef uses' do
+      visit chef_path(@chef_1)
+
+      click_link("All Ingredients")
+
+      within('#ingredients') do
+        expect(page).to have_content(@ingredient_1.name)
+        expect(page).to have_content(@ingredient_2.name)
+      end
+    end
   end
 end
-
-# As a visitor
-# When I visit a chef's show page
-# I see a link to view a list of all ingredients that this chef uses in their dishes.
-# When I click on that link
-# I'm taken to a chef's ingredients index page
-# and I can see a unique list of names of all the ingredients that this chef uses.
