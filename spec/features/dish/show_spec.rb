@@ -8,6 +8,15 @@ RSpec.describe 'Dish Show Page', type: :feature  do
     it 'can visit the dish show page' do
       visit dish_path(@dish_1)
     end
+
+    it 'can see the dish name and description' do
+      visit dish_path(@dish_1)
+
+      within ('#dish_info') do
+        expect(page).to have_content(@dish_1.name)
+        expect(page).to have_content(@dish_1.description)
+      end
+    end
   end
 end
 
