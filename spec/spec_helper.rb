@@ -3,6 +3,7 @@ def test_data
   @dish_1 = @chef_1.dishes.create!(name: "Mac and Cheese", description: "Macaroni noodles with cheese")
   @ingredient_1 = Ingredient.create!(name: "Macaroni", calories: 200)
   @ingredient_2 = Ingredient.create!(name: "Cheese", calories: 400)
+  @ingredient_3 = Ingredient.create!(name: "Bacon", calories: 100)
   @dish_ingredients_1 = DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_1)
   @dish_ingredients_2 = DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_2)
 end
