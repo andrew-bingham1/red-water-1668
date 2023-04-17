@@ -1,5 +1,14 @@
 <h1> Dish Show Page </h1>
 <section id="dish_info">
-  <h2> <%= @dish.name %> </h2>
-  <p> <%= @dish.description %> </p>
+  <h2>Name: <%= @dish.name %> </h2>
+  <p>Description <%= @dish.description %> </p>
+  <p>Total Calories <%= @dish.total_calories %> </p>
+  <p>Chef: <%= @dish.chef.name %> </p>
 </section>
+
+<section id="ingredients">
+  <h2>Ingredients</h2>
+  <% @ingredients.each do |ingredient| %>
+    <p> <%= ingredient.name %> </p>
+  <% end %>
+  </section>
