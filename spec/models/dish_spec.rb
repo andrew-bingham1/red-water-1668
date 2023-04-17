@@ -8,4 +8,20 @@ RSpec.describe Dish, type: :model do
   describe "relationships" do
     it {should belong_to :chef}
   end
+
+  describe "instance methods" do
+    before (:each) do
+      test_data
+    end
+
+    describe "#total_calories" do
+      it 'can calculate the total calories for a dish' do
+        expect(@dish_1.total_calories).to eq(600)
+
+        @ingredient_1.update(calories: 1000)
+
+        expect(@dish_1.total_calories).to eq(1400)
+      end
+    end
+  end
 end
